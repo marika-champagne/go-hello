@@ -1,28 +1,31 @@
 package main
 
 import (
-    "fmt"
-    "math/rand"
-    "time"
+	"fmt"
+	"math/rand"
+	"time"
 )
 
+var affirmations = []string{
+	"I am complete as I am, others simply support me",
+	"I am grateful for every moment in my life",
+	"I have the courage to face all challenges",
+	"I attract abundance into my life",
+	"I am at peace with myself and the world",
+	"I love and accept myself unconditionally",
+	"I am constantly growing and evolving",
+}
+
 func main() {
-    // Add new affirmations here
-    selfWorth := "I am complete as I am, others simply support me"
-    gratitude := "I am grateful for every moment in my life"
-    courage := "I have the courage to face all challenges"
-    abundance := "I attract abundance into my life"
-    peace := "I am at peace with myself and the world"
-    selfLove := "I love and accept myself unconditionally"
-    growth := "I am constantly growing and evolving"
+	// Seed the random number generator once at the start of the program
+	rand.Seed(time.Now().UnixNano())
 
-    // All affirmations must be stored in a slice
-    affirmations := []string{selfWorth, gratitude, courage, abundance, peace, selfLove, growth}
+	// Print a random affirmation
+	fmt.Println(RandomAffirmation())
+}
 
-    //Seed the random number generator to ensure randomness
-    rand.Seed(time.Now().UnixNano())
-
-    //Select and print a random affirmation
-    selectedIndex := rand.Intn(len(affirmations))
-    fmt.Println(affirmations[selectedIndex])
+// Returns a random affirmation from the list.
+func RandomAffirmation() string {
+	selectedIndex := rand.Intn(len(affirmations))
+	return affirmations[selectedIndex]
 }
